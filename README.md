@@ -1,8 +1,14 @@
 # SdaMongodbManagement
 
-This project was generated using [Nx](https://nx.dev).
+This project was generated using [Nx](https://nx.dev) via the following commands:
 
-<p align="center"><img src="https://raw.githubusercontent.com/nrwl/nx/master/nx-logo.png" width="450"></p>
+```
+> npx create-nx-workspace sda-mongodb-management --prefix sda --style scss
+? What is the npm scope you would like to use for your Nx Workspace? sda
+? What to create in the new workspac? angular
+```
+
+<p align="center" style="margin-top: 20px"><img src="https://raw.githubusercontent.com/nrwl/nx/master/nx-logo.png" width="100"></p>
 
 🔎 **Nx is a set of Angular CLI power-ups for modern development.**
 
