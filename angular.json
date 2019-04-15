@@ -1,0 +1,142 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "",
+  "projects": {
+    "sda-mongodb-management": {
+      "root": "apps/sda-mongodb-management/",
+      "sourceRoot": "apps/sda-mongodb-management/src",
+      "projectType": "application",
+      "prefix": "sda",
+      "schematics": {
+        "@nrwl/schematics:component": {
+          "style": "scss"
+        }
+      },
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/sda-mongodb-management",
+            "index": "apps/sda-mongodb-management/src/index.html",
+            "main": "apps/sda-mongodb-management/src/main.ts",
+            "polyfills": "apps/sda-mongodb-management/src/polyfills.ts",
+            "tsConfig": "apps/sda-mongodb-management/tsconfig.app.json",
+            "assets": [
+              "apps/sda-mongodb-management/src/favicon.ico",
+              "apps/sda-mongodb-management/src/assets"
+            ],
+            "styles": ["apps/sda-mongodb-management/src/styles.scss"],
+            "scripts": [],
+            "es5BrowserSupport": true
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/sda-mongodb-management/src/environments/environment.ts",
+                  "with": "apps/sda-mongodb-management/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "sda-mongodb-management:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "sda-mongodb-management:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "sda-mongodb-management:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/sda-mongodb-management/tsconfig.app.json",
+              "apps/sda-mongodb-management/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/builders:jest",
+          "options": {
+            "jestConfig": "apps/sda-mongodb-management/jest.config.js",
+            "tsConfig": "apps/sda-mongodb-management/tsconfig.spec.json",
+            "setupFile": "apps/sda-mongodb-management/src/test-setup.ts"
+          }
+        }
+      }
+    },
+    "sda-mongodb-management-e2e": {
+      "root": "apps/sda-mongodb-management-e2e",
+      "projectType": "application",
+      "prefix": "",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/builders:cypress",
+          "options": {
+            "cypressConfig": "apps/sda-mongodb-management-e2e/cypress.json",
+            "tsConfig": "apps/sda-mongodb-management-e2e/tsconfig.e2e.json",
+            "devServerTarget": "sda-mongodb-management:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "sda-mongodb-management:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": "apps/sda-mongodb-management-e2e/tsconfig.e2e.json",
+            "exclude": ["**/node_modules/**"]
+          }
+        }
+      }
+    }
+  },
+  "cli": {
+    "warnings": {
+      "typescriptMismatch": false,
+      "versionMismatch": false
+    },
+    "defaultCollection": "@nrwl/schematics"
+  },
+  "schematics": {
+    "@nrwl/schematics:application": {
+      "style": "scss",
+      "framework": "angular"
+    },
+    "@nrwl/schematics:library": {
+      "style": "scss"
+    }
+  },
+  "defaultProject": "sda-mongodb-management"
+}

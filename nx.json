@@ -1,0 +1,18 @@
+{
+  "npmScope": "sda",
+  "implicitDependencies": {
+    "angular.json": "*",
+    "package.json": "*",
+    "tsconfig.json": "*",
+    "tslint.json": "*",
+    "nx.json": "*"
+  },
+  "projects": {
+    "sda-mongodb-management": {
+      "tags": []
+    },
+    "sda-mongodb-management-e2e": {
+      "tags": []
+    }
+  }
+}
